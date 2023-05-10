@@ -729,7 +729,7 @@ static int open_devices(struct tcmulib_context *ctx)
 	int num_good_devs = 0;
 	int i;
 
-	num_devs = scandir("/dev", &dirent_list, is_uio, alphasort);
+	num_devs = scandir("/dev/hocus", &dirent_list, is_uio, alphasort);
 	if (num_devs == -1)
 		return -1;
 
@@ -1027,7 +1027,7 @@ tcmu_dev_get_memory_info(struct tcmu_device *dev, void **base,
 			 size_t *len, off_t *offset)
 {
 	char *mmap_name;
-	const char *namefmt = "/dev/%s";
+	const char *namefmt = "/dev/hocus/%s";
 	const char *sizefmt = "/sys/class/uio/%s/maps/map0/size";
 
 	if (asprintf(&mmap_name, namefmt, dev->dev_name) == -1) {
